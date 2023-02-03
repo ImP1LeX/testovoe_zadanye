@@ -1,7 +1,5 @@
 from aiogram import Bot, Dispatcher, executor, types
-
-DOLLAR = 70.07
-EURO = 77.02
+import random
 
 bot = Bot(token="5479233793:AAH9JgA6kuSIT9q_4v_K1Gl4BdD3E2k_IBs")
 dp = Dispatcher(bot=bot)
@@ -22,11 +20,11 @@ async def cmd_start(message: types.Message):
 
 @dp.message_handler(text=["Доллары"])
 async def dollar_cmd(message: types.Message):
-    await message.answer(f"Цена: {DOLLAR}")
+    await message.answer(f"Цена: {random.randint(1, 100)}")
 
 @dp.message_handler(text=["Евро"])
 async def euro_cmd(message: types.Message):
-    await message.answer(f"Цена: {EURO}")
+    await message.answer(f"Цена: {random.randint(1, 100)}")
 
 if __name__ == "__main__":
     executor.start_polling(dp, skip_updates=True)

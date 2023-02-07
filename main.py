@@ -44,7 +44,6 @@ async def cmd_start(message: types.Message):
 
 @dp.message_handler(text=["Доллары","Евро"])
 async def dollar_cmd(message: types.Message):
-    print(str(message.date))
     for i in range(len(memory_users)):
         if memory_users[i][0] == message.from_user.id:
             if memory_users[i][3] == 0:
